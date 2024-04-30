@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<AppModel>;
+
+
+@section projects
+{
+    @try
+    {
+        <div class="background-padding md-3 text-center" style="margin-bottom: 100px;">
+            <h3 class="display-4">Looking For Other Projects?</h3>
+            <p>Here is a list of projects I've worked on during the majority of my undergraduate years in college.</p>
+
+            <div class="row">
+
+                @if (Model != null)
+                {
+                    @foreach (var app in Model)
+                    {
+                        <div class="col text-center">
+                            <div class="my-card card-margin">
+                                <cropped-image width="200" height="100" image-source="@app.Picture"></cropped-image>
+
+
+                                <h5 class="my-title display-4">@app.Name</h5>
+
+                                <!-- Hide both of these unless arrow down button click-->
+                                <p class="my-description" id="@($"description_{app.Id}")" style="display: none;">@app.Description</p>
+                                <a class="my-button" href="@app.Link" style="display: none;">Click To View</a>
+                                <!---->
+
+
+
+
+                                <div>
+                                    <i class="arrow down" onclick="showDescription('@app.Id', this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+                else
+                {
+                    <p>No Apps Available 1</p>
+                }
+            </div>
+        </div>
+    }
+    catch
+    {
+        <h3>No Apps Available 2</h3>
+    }
+}

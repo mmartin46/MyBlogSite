@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var apps = ViewData["apps"] as IEnumerable<AppModel>;
+}
+
+@model AppModel;
+
+<div class="container my-container">
+    @if (Model != null)
+    {
+        <h3 class="display-4 shift-title">@Model.Name</h3>
+        <div class="white-board">
+            <div class="row">
+                <div class="col">
+                    <img src="@Model.Picture" class="my-img align-content-center text-center" alt="Screenshot" />
+                </div>
+                <div class="col">
+                    <h3 class="display-4">Authors</h3>
+                    <p>@Model.Authors</p>
+                    <h3 class="display-4">Description</h3>
+                    <p>@Model.Description</p>
+                    <h3 class="display-4">Language(s)</h3>
+                    <p>@Model.Language</p>
+                    <button class="btn btn-dark"><a class="white white-link" href="@Model.Link">Click To View</a></button>
+                </div>
+            </div>
+
+
+        </div>
+    }
+    else
+    {
+        <h3 class="display-4 text-center">Project doesn't exist. &#129488</h3>
+    }
+
+
+</div>
+
+
+@section projects
+{
+    @try
+    {
+        <div class="background-padding md-3 text-center">
+            <h3 class="display-4">Looking For Other Projects?</h3>
+            <p>Here is a list of projects I've worked on during the majority of my undergraduate years in college.</p>
+
+            <div class="row">
+
+                @if (apps != null)
+                {
+                    @foreach (var app in apps)
+                    {
+                        <div class="col text-center">
+                            <div class="my-card card-margin">
+                                <cropped-image width="200" height="100" image-source="@app.Picture"></cropped-image>
+
+
+                                <h5 class="my-title display-4">@app.Name</h5>
+
+                                <!-- Hide both of these unless arrow down button click-->
+                                <p class="my-description" id="@($"description_{app.Id}")" style="display: none;">@app.Description</p>
+                                <a class="my-button" asp-controller="Projects" asp-action="GetApp" asp-route-id="@app.Id" style="display: none;">Click To View</a>
+                                <!---->
+
+
+
+
+                                <div>
+                                    <i class="arrow down" onclick="showDescription('@app.Id', this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+                else
+                {
+                    <p>No Apps Available 1</p>
+                }
+            </div>
+        </div>
+    }
+    catch
+    {
+        <h3>No Apps Available 2</h3>
+    }
+}

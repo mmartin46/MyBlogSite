@@ -1,0 +1,136 @@
+﻿@using Portfolio.Helpers
+
+@{
+    var news = ViewData["ApiNews"] as NewsModel[];
+}
+
+<a id="top-heading"></a>
+@model List<AppModel>;
+@section heading
+{
+    <div class="text-center header-img">
+        <h3 class="display-4">Mitchell Martin</h3>
+        <p>Aspiring Software Engineer</p>
+        <div class="social-heading">
+            <a href="https://github.com/mmartin46">
+                <img src="/images/social/git_logo.png" alt="Github" />
+            </a>
+            <a href="https://www.linkedin.com/in/mitchell-martin-0508021b9/">
+                <img src="/images/social/linkedln.png" alt="Linkedln" />
+            </a>
+        </div>
+    </div>
+
+
+}
+
+
+@{
+    string GetShorterText(string description, int maxLength = 50)
+    {
+        return description.Length <= maxLength ? description : description.Substring(0, maxLength) + "...";
+    }
+}
+
+<div class="container align-content-center" style="padding-top: 100px">
+    <div class="no-padding text-center">
+        <h3 class="display-4">Latest Tech News</h3>
+        <p>Just some news on technology, to get caught up.</p>
+    </div>
+
+    <div class="row">
+
+    @{
+        int count = 0;
+    }
+    @if (news != null && news.Length > 0)
+    {
+        @foreach(var topic in news)
+        {
+                if (topic.ImageURL != null && topic.Description != null &&
+                    topic.Description.Length <= 1000)
+                {
+                    <div class="col">
+
+                        <!--To do format the above later-->
+                        <div class="white-board">
+                            <h3 class="display-4">@topic.Title</h3>
+                            <div class="row">
+                                <div class="col my-img">
+                                    <img src="@topic.ImageURL" style="max-height: 200px;"/>
+                                </div>
+                                <div class="col desc">
+                                    <p>@GetShorterText(topic.Description, 100)</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="my-next-btn btn btn-dark">
+                                    <a class="white white-link" href="@topic.Link">Click To See More</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    ++count;
+
+                    if (count >= 6)
+                    {
+                        break;   
+                    }
+
+            }
+        }
+    }
+    </div>
+</div>
+
+
+<a id="project-area"></a>
+@section projects
+{
+    @try
+    {
+        <div class="background-padding text-center" style="padding-bottom: 100px">
+            <h3 class="display-4 text-center">Projects</h3>
+            <p>Projects that I have worked on during the majority of my undergraduate years</p>
+
+            <div class="row">
+
+                @if (Model != null)
+                {
+                    @foreach (var app in Model)
+                    {
+                        <div class="col">
+                            <div class="my-card card-margin">
+                                <cropped-image width="200" height="100" image-source="@app.Picture"></cropped-image>
+                            
+                            
+                                <h5 class="my-title display-4">@app.Name</h5>
+                            
+                                <!-- Hide both of these unless arrow down button click-->
+                                <p class="my-description" id="@($"description_{app.Id}")" style="display: none;">@app.Description</p>
+                                <a class="my-button" asp-controller="Projects" asp-action="GetApp" asp-route-id="@app.Id" style="display: none;">Click To View</a>
+                                <!---->
+
+
+
+
+                                <div>
+                                    <i class="arrow down" onclick="showDescription('@app.Id', this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+                else
+                {
+                    <p>No Apps Available 1</p>
+                }
+            </div>
+        </div>
+    }
+    catch
+    {
+        <h3>No Apps Available 2</h3>
+    }
+}

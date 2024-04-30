@@ -1,0 +1,137 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<a id="top-heading"></a>
+<div class="container" style="padding: 3%;">
+    <div>
+        <h2 class="display-3">About Me</h2>
+
+        <div class="container about-description">
+
+
+            <div class="row">
+                <div class="col">
+                    <img id="profile-pic" src="/images/profile.jpg" />
+                </div>
+                <div class="col">
+                    <br />
+                    <p>
+                        Hello! My name is Mitchell Martin. I recently graduated with a Bachelor's of Science
+                        in Computer Science from Angelo State University. For around the past two decades, I have
+                        had a strong interest in being technically creative.
+                    </p>
+                    <p>
+                        I began developing projects utilizing programming languages around four years ago.
+                        Moreover, I delved into Game Development in Python, and overtime C++.
+                        Since then, I have began to transition more in different fields such as Mobile Development
+                        utilizing prominently Java, Data-Science, and gaining exposure to Web Development
+                        by utilizing frameworks such as React and ASP.NET CORE.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <h3 class="display-4">Technical Skills</h3>
+
+        @{
+            Dictionary<string, string> softwareSkills = new Dictionary<string, string>()
+            {
+                { "C++", "85" },
+                { "Java", "80" },
+                { "Python", "80" }
+            };
+
+        }
+
+        <a id="tech-skills"></a>
+        <div class="container about-description" style="padding: 100px;">
+            <h3 class="display-6">Software Languages</h3>
+            <div class="row" style="padding-top: 30px;">
+
+                @foreach(var pair in softwareSkills)
+                {
+                    <div class="col">
+                        <circle-progress-bar percentage="@pair.Value" title="@pair.Key"></circle-progress-bar>
+                    </div>
+                }
+            </div>
+            <div class="row">
+                <div style="padding: 30px">
+
+                </div>
+                <h3 class="display-6">Why Is C++ The Highest?</h3>
+                <p>I have utilized C++ throughout my journey as a college student. As said earlier on this page,
+                    I have successfully utilized the language in academic and school projects.
+                </p>
+                
+                    <ul class="rid-the-bullets">
+                        <li class="display-4" style="font-size: 30px;">Aritifical Intelligence</li>
+                        <p>Solved complex-problems with the provided language utilzing different
+                            types of uninformed and informed search algorithms.
+                        </p>
+                        <li class="display-4" style="font-size: 30px;">Algorithmic Languages & Compilers</li>
+                        <p>Worked on a compiler utilizing a pair programming technique in order to efficiently
+                            deliver our project before the addressed deadline.</p>
+                        <li class="display-4" style="font-size: 30px;">Theory of Algorithms</li>
+                        <p>Gained an overall familiarity with theoretical computer science concepts
+                            and finished all assignments using the provided language.
+                        </p>
+                        <li class="display-4" style="font-size: 30px;">Data Structures & Algorithms</li>
+                        <p>Gained problem-solving experience and familiarity of important Computer Science concepts
+                            using the provided language.
+                        </p>
+                    </ul>
+                
+            </div>
+        </div>
+
+        <a id="daily-routine"></a>
+        <h3 class="display-4">Daily Routine</h3>
+        <div class="container about-description" style="padding: 100px;">
+            <div class="row">
+
+
+                <topic image="/images//pb_oats.png" header="Breakfast"
+                       description="I typically start of my day with some peanut butter oatmeal.
+                            I don't have it with anything anymore because it is a relatively
+                            nutrious meal that is pretty filling (even with a small amount).
+                            Some people may think this type of breakfast is gross, but I believe
+                            it is delicious." your-style="padding: 30px;">
+                        </topic>
+
+                <topic image="/images/code.jpg" header="Coding"
+                       description="Usually throughout the day, I spend my time either trying to get
+                                    up to date with relatively long-living frameworks within technology
+                                    or building my own projects in order to get more familiar with
+                                    what is needed in the field of Software Developmet. Is it alot? Yes,
+                                    but at the same time, sometimes I geniuenly enjoy it." your-style="padding: 30px;">
+                </topic>
+                <topic image="/images/tuna.jpg" header="Lunch"
+                      description="For lunch, I typically have something relatively light so I can
+                                   still be able to concentrate. Typically, I will have a tuna-fish sandwich
+                                   with some crackers or chips, but this can vary. Overall, during this time I
+                                   still have plenty arrands that need to be done." your-style="padding: 30px;"></topic>
+
+
+                <topic image="/images/gym.jpg" header="Workout"
+                      description="After I have finished coding about a few hours longer, I decide to go ahead
+                                    and relieve some stress and workout. When you are sitting for the time
+                                    needed to learn new technologies and code up projects, I would want to move
+                                    around for a bit." your-style="padding: 30px;"></topic>
+
+                <topic image="/images/dinner.jpg" header="Dinner"
+                      description="Typically after my workout, I would ideally have a packed wrap of some
+                                   sort with fruit and crackers. Usually I try to make it relatively big considering
+                                    everything else was relatively light throughout the day. After this basically sleep and repeat."
+                      your-style="padding: 30px;"></topic>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

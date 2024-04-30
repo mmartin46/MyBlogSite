@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+:root {
+    --default-margin: 50px;
+}
+
+.my-container {
+    margin-top: var(--default-margin);
+    margin-bottom: var(--default-margin);
+}
+
+.my-img {
+    max-height: 250px;
+}
+
+
+.white-board {
+    box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    background-color: white;
+    margin: 30px;
+    text-align: left;
+    max-width: 1000px;
+    height: 400px;
+    overflow: auto;
+    word-break: break-word;
+    width: fit-content;
+}
+
+.white-board h3 {
+    font-size: 30px;
+}
+
+.white-link a {
+    color: rgba(255, 255, 255, 1);
+}
+
+a {
+    text-decoration: none;
+}
+
+.white-link:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.white-link {
+    color: rgba(255, 255, 255, 1);
+}
+
+.desc {
+    align-content: flex-start;
+}
+
+.my-img {
+    align-self: center;
+}
+
+.my-next-btn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+no-padding {
+    padding: 0;
+}

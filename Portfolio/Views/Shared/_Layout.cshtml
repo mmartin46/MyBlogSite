@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Portfolio</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/app_content.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Portfolio.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="heading collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="AboutMe">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Projects" asp-action="Index">Projects</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Email" asp-action="AddSender">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="my-main">
+        @RenderSection("heading", false)
+        @RenderBody()
+        @RenderSection("projects", false)
+    </main>
+
+
+    <footer class="footer my-footer">
+        <div class="row">
+            @{
+                Dictionary<string, Tuple<List<string>, List<string>>> sectionParts = new Dictionary<string, Tuple<List<string>, List<string>>>()
+                {
+                    { "Projects", Tuple.Create(new List<string>(){"Mobile", "Data-Science", "Games"}, new List<string>() {"#", "#", "#"}) },
+                    { "About Me", Tuple.Create(new List<string>(){"Introduction", "Technical Skills"}, new List<string>() {"/Home/AboutMe/#top-heading", "/Home/AboutMe#tech-skills"}) },
+                    { "Home", Tuple.Create(new List<string>(){"Title", "Projects"}, new List<string>() { "/Home/Index/#top-heading", "/Home/Index/#project-area"}) }
+                };
+            }
+
+            @foreach(var section in sectionParts)
+            {
+                var key = section.Key;
+                var values = section.Value;
+
+                <div class="col">
+                    <ul class="my-list">
+                        @{
+                            var controller = key.Replace(" ", "");
+                        }
+                        
+                        @if (controller.Contains("About"))
+                        {
+                            <li><a asp-controller="Home" asp-action="@controller"><h6 class="head-title">@key</h6></a></li>
+
+                        }
+                        else
+                        {
+                            <li><a asp-controller="@controller" asp-action="Index"><h6 class="head-title">@key</h6></a></li>
+                        }
+
+                        @for (int i = 0; i < values.Item1.Count && i < values.Item2.Count; ++i)
+                        {
+                            <li>
+                                <a href="@values.Item2[i]">
+                                    <h6 class="white-link" style="font-size: 16px;">@values.Item1[i]</h6>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div> 
+            }
+        </div>
+        <div class="row">
+            <div class="social-heading">
+                <a href="https://github.com/mmartin46">
+                    <img src="/images/social/git_logo.png" alt="Github" />
+                </a>
+                <a href="https://www.linkedin.com/in/mitchell-martin-0508021b9/">
+                    <img src="/images/social/linkedln.png" alt="Linkedln" />
+                </a>
+            </div>
+            <p class="text-center white cp-tag">@@Copyright @DateTime.Now.Year Mitchell Martin </p>
+        </div>
+    </footer>
+<script src="~/js/site.js"></script>
+</body>
+</html>

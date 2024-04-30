@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model SenderModel;
+
+
+<div class="container frame">
+
+    @if (ViewBag.didSend == true)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Message Sent</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Message Sent</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <form method="post" asp-controller="Email" asp-action="AddSender">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Message" class="control-label"></label>
+            <input asp-for="Message" class="form-control" />
+            <span asp-validation-for="Message"></span>
+        </div>
+    </form>
+</div>
+<form method="post" asp-controller="Email" asp-action="AddSender">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+</form>

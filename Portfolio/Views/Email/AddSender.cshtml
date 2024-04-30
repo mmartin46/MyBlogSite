@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@model SenderModel;
+
+
+<div class="container title">
+
+    <h1 class="display-3">Contact Me</h1>
+    <div class="frame">
+
+        @if (ViewBag.didSend == true)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Message Sent</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        else if (ViewBag.didSend == false && ViewBag.sendId == -1)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Message Failed To Send</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+
+
+        <form method="post" asp-controller="Email" asp-action="AddSender">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span class="text-danger" asp-validation-for="Subject"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <input asp-for="Message" class="form-control" />
+                <span class="text-danger" asp-validation-for="Message"></span>
+            </div>
+            <br/>
+            <input type="submit" class="btn btn-dark" value="Submit" name="submit" />
+        </form>
+    </div>
+
+
+</div>

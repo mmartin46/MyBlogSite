@@ -29,8 +29,8 @@ progressBars.forEach((progressBar) => {
         progressValue++;
 
         progressBar.style.background = `conic-gradient(
-                                                                            #000000 ${progressValue * 3.6}deg,
-                                                                            #e9e9e9 ${progressValue * 3.6}deg
+                                                                            #e9e9e9 ${progressValue * 3.6}deg,
+                                                                            #000000 ${progressValue * 3.6}deg
                                                                     )`;
 
         if (progressValue == progressEndValue) {

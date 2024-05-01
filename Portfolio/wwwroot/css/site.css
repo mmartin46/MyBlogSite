@@ -2,6 +2,10 @@ html {
   font-size: 14px;
 }
 
+:root {
+    --dark-color: #1F2226;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -18,7 +22,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: var(--dark-color);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .heading {
@@ -68,7 +74,7 @@ my-card:hover {
 }
 
 .arrow {
-    border: solid black;
+    border: solid rgba(255, 255, 255, 0.5);
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
@@ -174,7 +180,7 @@ my-card:hover {
 .skill {
     height: 190px;
     width: 160px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--dark-color);
     border-radius: 8px;
 }
 
@@ -195,14 +201,14 @@ my-card:hover {
     place-items: center;
 }
 
-.circular-progress:before {
-    content: "";
-    position: absolute;
-    height: 84%;
-    width: 84%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-}
+    .circular-progress:before {
+        content: "";
+        position: absolute;
+        height: 84%;
+        width: 84%;
+        background-color: rgba(52,58,64, 1);
+        border-radius: 50%;
+    }
 
 .value-container {
     position: relative;
@@ -222,7 +228,7 @@ my-card:hover {
 }
 
 .white {
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .cp-tag {
@@ -242,7 +248,7 @@ my-card:hover {
 }
 
 .head-title {
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .col {
@@ -254,7 +260,7 @@ my-card:hover {
     width: 100%;
     position: absolute;
     bottom: 0;
-    background-color: black;
+    background-color: rgb(52,58,64);
     padding: 30px;
 }
 

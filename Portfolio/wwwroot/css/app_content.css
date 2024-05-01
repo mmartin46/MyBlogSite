@@ -21,7 +21,8 @@
 .white-board {
     box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.2);
     padding: 30px;
-    background-color: white;
+    background-color: rgb(62, 57, 57);
+
     margin: 30px;
     text-align: left;
     max-width: 1000px;
@@ -36,7 +37,7 @@
 }
 
 .white-link a {
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 a {
@@ -44,11 +45,11 @@ a {
 }
 
 .white-link:hover {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .white-link {
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .desc {

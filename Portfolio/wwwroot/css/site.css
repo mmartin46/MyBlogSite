@@ -361,3 +361,9 @@ my-card:hover {
 .col img {
     align-self: center;
 }
+
+.row {
+    display: flex;
+    align-content: center;
+    align-self: center;
+}

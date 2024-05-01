@@ -6,6 +6,7 @@
 
 :root {
     --default-margin: 50px;
+    --second-color: rgb(52,58,64);
 }
 
 .my-container {
@@ -21,7 +22,7 @@
 .white-board {
     box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.2);
     padding: 30px;
-    background-color: rgb(62, 57, 57);
+    background-color: var(--second-color);
 
     margin: 30px;
     text-align: left;

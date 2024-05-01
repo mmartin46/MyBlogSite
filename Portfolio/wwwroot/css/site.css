@@ -4,6 +4,7 @@ html {
 
 :root {
     --dark-color: #1F2226;
+    --second-color: rgb(52,58,64);
 }
 
 @media (min-width: 768px) {
@@ -13,7 +14,7 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem rgb(255, 255, 255, 0.6), 0 0 0 0.25rem #258cfb;
 }
 
 html {
@@ -206,7 +207,7 @@ my-card:hover {
         position: absolute;
         height: 84%;
         width: 84%;
-        background-color: rgba(52,58,64, 1);
+        background-color: var(--dark-color);
         border-radius: 50%;
     }
 
@@ -260,7 +261,7 @@ my-card:hover {
     width: 100%;
     position: absolute;
     bottom: 0;
-    background-color: rgb(52,58,64);
+    background-color: var(--second-color);
     padding: 30px;
 }
 

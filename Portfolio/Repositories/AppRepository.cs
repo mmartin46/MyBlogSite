@@ -31,7 +31,8 @@ namespace Portfolio.Repositories
                         Description = app.Description,
                         Language = app.Language,
                         Link = app.Link,
-                        Picture = app.Picture                     
+                        Picture = app.Picture,
+                        Category = app.Category
                     });
                 }
             }

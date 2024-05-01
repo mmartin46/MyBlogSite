@@ -2,6 +2,7 @@
 
 @{
     var news = ViewData["ApiNews"] as NewsModel[];
+    var category = ViewData["category"] as string;
 }
 
 <a id="top-heading"></a>
@@ -10,7 +11,7 @@
 {
     <div class="text-center header-img">
         <h3 class="display-4">Mitchell Martin</h3>
-        <p>Aspiring Software Engineer</p>
+        <p>Graudate in Computer Science</p>
         <div class="social-heading">
             <a href="https://github.com/mmartin46">
                 <img src="/images/social/git_logo.png" alt="Github" />
@@ -90,6 +91,7 @@
     @try
     {
         <div class="background-padding text-center" style="padding-bottom: 100px">
+
             <h3 class="display-4 text-center">Projects</h3>
             <p>Projects that I have worked on during the majority of my undergraduate years</p>
 
@@ -102,10 +104,10 @@
                         <div class="col">
                             <div class="my-card card-margin">
                                 <cropped-image width="200" height="100" image-source="@app.Picture"></cropped-image>
-                            
-                            
+                        
+                        
                                 <h5 class="my-title display-4">@app.Name</h5>
-                            
+                        
                                 <!-- Hide both of these unless arrow down button click-->
                                 <p class="my-description" id="@($"description_{app.Id}")" style="display: none;">@app.Description</p>
                                 <a class="my-button" asp-controller="Projects" asp-action="GetApp" asp-route-id="@app.Id" style="display: none;">Click To View</a>
@@ -119,6 +121,7 @@
                                 </div>
                             </div>
                         </div>
+      
                     }
 
                 }

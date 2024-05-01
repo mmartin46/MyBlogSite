@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    var category = ViewData["category"] as string;
 }
 
 @model List<AppModel>;
@@ -11,36 +12,60 @@
 {
     @try
     {
-        <div class="background-padding md-3 text-center" style="margin-bottom: 100px;">
-            <h3 class="display-4">Looking For Other Projects?</h3>
-            <p>Here is a list of projects I've worked on during the majority of my undergraduate years in college.</p>
+        <div class="text-center" style="padding-bottom: 100px">
 
+            @if (category == null)
+            {
+                <h3 class="display-4 text-center">Projects</h3>
+                <p>Projects that I have worked on during the majority of my undergraduate years</p>
+            }
+            else
+            {
+                switch (category)
+                {
+                    case "Games":
+                        <h3 class="display-4 text-center">Games</h3>
+                        <p>Here are some games I have developed throughout my development journey</p>
+                        break;
+                    case "Mobile":
+                        <h3 class="display-4 text-center">Mobile</h3>
+                        <p>Some mobile projects I have developed</p>
+                        break;
+                    case "Data":
+                        <h3 class="display-4 text-center">Data-Science</h3>
+                        <p>Data-Science based projects I've created</p>
+                        break;
+                }
+            }
             <div class="row">
 
                 @if (Model != null)
                 {
                     @foreach (var app in Model)
                     {
-                        <div class="col text-center">
-                            <div class="my-card card-margin">
-                                <cropped-image width="200" height="100" image-source="@app.Picture"></cropped-image>
+                        if (category == null || category == app.Category)
+                        {
+                            <div class="col">
+                                <div class="my-card card-margin">
+                                    <cropped-image width="200" height="100" image-source="@app.Picture"></cropped-image>
 
 
-                                <h5 class="my-title display-4">@app.Name</h5>
+                                    <h5 class="my-title display-4">@app.Name</h5>
 
-                                <!-- Hide both of these unless arrow down button click-->
-                                <p class="my-description" id="@($"description_{app.Id}")" style="display: none;">@app.Description</p>
-                                <a class="my-button" href="@app.Link" style="display: none;">Click To View</a>
-                                <!---->
-
-
+                                    <!-- Hide both of these unless arrow down button click-->
+                                    <p class="my-description" id="@($"description_{app.Id}")" style="display: none;">@app.Description</p>
+                                    <a class="my-button" asp-controller="Projects" asp-action="GetApp" asp-route-id="@app.Id" style="display: none;">Click To View</a>
+                                    <!---->
 
 
-                                <div>
-                                    <i class="arrow down" onclick="showDescription('@app.Id', this)"></i>
+
+
+                                    <div>
+                                        <i class="arrow down" onclick="showDescription('@app.Id', this)"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
 
                 }

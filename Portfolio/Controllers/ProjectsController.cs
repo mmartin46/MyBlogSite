@@ -16,9 +16,26 @@ namespace Portfolio.Controllers
             _appRepository = appRepository;
         }
 
-        public async Task<ViewResult> Index()
+        [Route("Projects/{category:alpha?}")]
+        public async Task<ViewResult> Index(string ?category)
         {
             var apps = await _appRepository.GetApps();
+
+            switch (category)
+            {
+                case "Games":
+                    apps = apps.Where(x => x.Category.Contains("Games")).ToList();
+                    break;
+                case "Mobile":
+                    apps = apps.Where(x => x.Category.Contains("Mobile")).ToList();
+                    break;
+                case "Data":
+                    apps = apps.Where(x => x.Category.Contains("Data")).ToList();
+                    break;
+            }
+
+            ViewData["category"] = category;
+
             return View(apps);
         }
 

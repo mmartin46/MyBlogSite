@@ -12,5 +12,8 @@ namespace Portfolio.Models
         public string ?Authors { get; set; }
         public string ?Link { get; set; } = "#";
         public string ?Picture { get; set; } = "#";
+
+        [Required]
+        public string ?Category { get; set; }
     }
 }

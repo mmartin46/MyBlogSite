@@ -28,6 +28,11 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .heading {
 }
 
@@ -189,7 +194,6 @@ my-card:hover {
 
 img {
     border-radius: 3%;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .rid-the-bullets {

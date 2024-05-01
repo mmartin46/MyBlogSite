@@ -27,6 +27,7 @@
     margin: 30px;
     text-align: left;
     max-width: 1000px;
+    width: auto;
     height: 400px;
     overflow: hidden;
     overflow-y: scroll;

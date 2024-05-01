@@ -24,6 +24,9 @@ body {
 .heading {
 }
 
+
+
+
 .social-heading {
     text-align: center;
 }
@@ -242,6 +245,11 @@ my-card:hover {
     color: rgb(255, 255, 255);
 }
 
+.col {
+    align-content: center;
+}
+
+
 .my-footer {
     width: 100%;
     position: absolute;
@@ -341,7 +349,6 @@ my-card:hover {
     }
 
     .row {
-        display: flex;
         align-content: center;
     }
 }

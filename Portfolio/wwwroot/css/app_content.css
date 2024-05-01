@@ -28,7 +28,10 @@
     text-align: left;
     max-width: 1000px;
     height: 400px;
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     word-break: break-word;
     width: fit-content;
 }

@@ -4,14 +4,26 @@
     var news = ViewData["ApiNews"] as NewsModel[];
     var category = ViewData["category"] as string;
 }
+<script>
+    $(document).ready(function () {
+        $("#main-content").css("opacity", 0);
 
+        $("#main-content").animate({
+            marginTop: '+=300px'
+        }, 0);
+        $("#main-content").animate({
+            opacity: 1,
+            marginTop: '-=300px'
+        }, 1000);
+    });
+</script>
 <a id="top-heading"></a>
 @model List<AppModel>;
 @section heading
 {
     <div class="text-center header-img">
         <h3 class="display-4">Mitchell Martin</h3>
-        <p>Graudate in Computer Science</p>
+        <p>Graduate in Computer Science</p>
         <div class="social-heading">
             <a href="https://github.com/mmartin46">
                 <img src="/images/social/git_logo.png" alt="Github" />
@@ -33,54 +45,54 @@
     }
 }
 
-<div class="container align-content-center" style="padding-top: 100px">
+<div id="main-content" class="container align-content-center" style="padding-top: 100px">
     <div class="no-padding text-center">
         <h3 class="display-4">Latest Tech News</h3>
         <p>Just some news on technology, to get caught up.</p>
     </div>
 
-    <div class="row">
+    <div class="row news-col">
 
-    @{
-        int count = 0;
-    }
-    @if (news != null && news.Length > 0)
-    {
-        @foreach(var topic in news)
+        @{
+            int count = 0;
+        }
+        @if (news != null && news.Length > 0)
         {
-                if (topic.ImageURL != null && topic.Description != null &&
-                    topic.Description.Length <= 1000)
-                {
-                    <div class="col">
+            @foreach(var topic in news)
+            {
+                    if (topic.ImageURL != null && topic.Description != null &&
+                        topic.Description.Length <= 1000)
+                    {
+                        <div class="col">
 
-                        <!--To do format the above later-->
-                        <div class="white-board">
-                            <h3 class="display-4">@topic.Title</h3>
-                            <div class="row">
-                                <div class="col my-img">
-                                    <img src="@topic.ImageURL" style="max-height: 200px;"/>
+                            <!--To do format the above later-->
+                            <div class="white-board">
+                                <h3 class="display-4">@topic.Title</h3>
+                                <div class="row">
+                                    <div class="col my-img">
+                                        <img src="@topic.ImageURL" style="max-height: 200px;"/>
+                                    </div>
+                                    <div class="col desc">
+                                        <p>@GetShorterText(topic.Description, 100)</p>
+                                    </div>
                                 </div>
-                                <div class="col desc">
-                                    <p>@GetShorterText(topic.Description, 100)</p>
+                                <div class="row">
+                                    <button class="my-next-btn btn btn-dark">
+                                        <a class="white white-link" href="@topic.Link">Click To See More</a>
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <button class="my-next-btn btn btn-dark">
-                                    <a class="white white-link" href="@topic.Link">Click To See More</a>
-                                </button>
                             </div>
                         </div>
-                    </div>
-                    ++count;
+                        ++count;
 
-                    if (count >= 6)
-                    {
-                        break;   
-                    }
+                        if (count >= 6)
+                        {
+                            break;   
+                        }
 
+                }
             }
         }
-    }
     </div>
 </div>
 

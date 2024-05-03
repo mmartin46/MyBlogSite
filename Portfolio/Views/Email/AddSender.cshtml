@@ -5,11 +5,27 @@
 
 @model SenderModel;
 
+<script>
+
+    var excludedTitle = "#my-title"
+
+    $(document).ready(function () {
+        $("#contact-info").css("opacity", 0);
+
+        $("#contact-info").not("#my-title").animate({
+            marginTop: '+=70px'
+        }, 0);
+        $("#contact-info").animate({
+            opacity: 1,
+            marginTop: '-=70px'
+        }, 1000);
+    });
+</script>
 
 <div class="container title">
 
     <h1 class="display-3">Contact Me</h1>
-    <div class="frame">
+    <div id="contact-info" class="frame">
 
         @if (ViewBag.didSend == true)
         {

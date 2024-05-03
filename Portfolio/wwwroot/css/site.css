@@ -130,10 +130,18 @@ my-card:hover {
     margin-top: 30px;
 }
 
+
+
 .frame {
     padding: 30px;
     box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 130px;
+}
+
+.white-board .col {
+    margin: 30px;
+    align-content: center;
+    padding: -40px;
 }
 
 .shadow {
@@ -244,6 +252,16 @@ img {
     margin-bottom: 300px;
 }
 
+.project-area {
+    margin-top: 300px;
+    padding-bottom: 100px;
+    opacity: 0;
+}
+
+.news-col {
+    margin: 10px;
+}
+
 .white {
     color: rgba(255, 255, 255, 0.6);
 }
@@ -272,6 +290,13 @@ img {
     align-content: center;
 }
 
+
+.main-content {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 .my-footer {
     width: 100%;
@@ -345,7 +370,6 @@ img {
         display: flex;
         align-content: center;
     }
-
 
 
     h2 {

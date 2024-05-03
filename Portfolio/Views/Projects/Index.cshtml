@@ -7,12 +7,25 @@
 
 @model List<AppModel>;
 
+<script>
+    $(document).ready(function () {
 
+        $("#project-area").css("opacity", 0);
+
+        $("#project-area").animate({
+            marginTop: '+=300px'
+        }, 0);
+        $("#project-area").animate({
+            opacity: 1,
+            marginTop: '-=300px',
+        }, 1800);
+    });
+</script>
 @section projects
 {
     @try
     {
-        <div class="text-center" style="padding-bottom: 100px">
+        <div class="text-center" id="project-area">
 
             @if (category == null)
             {

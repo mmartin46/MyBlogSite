@@ -3,11 +3,26 @@
 *@
 @{
 }
+<script>
+    
+    var excludedTitle = "#my-title";
 
+    $(document).ready(function () {
+        $("#about-section").not("#my-title").css("opacity", 0);
+
+        $("#about-section").not("#my-title").animate({
+            marginTop: '+=300px'
+        }, 0);
+        $("#about-section").not("#my-title").animate({
+            opacity: 1,
+            marginTop: '-=300px'
+        }, 1000);
+    });
+</script>
 <a id="top-heading"></a>
-<div class="container" style="padding: 3%;">
+<div id="about-section" class="container" style="padding: 3%;">
     <div>
-        <h2 class="display-3">About Me</h2>
+        <h2 id="my-title" class="display-3">About Me</h2>
 
         <div class="container about-description">
 

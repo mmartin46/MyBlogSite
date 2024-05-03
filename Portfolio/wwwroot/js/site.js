@@ -2,6 +2,22 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+
+function fadeIdUp(id) {
+    $(document).ready(function () {
+
+        $(id).css("opacity", 0);
+
+        $(id).animate({
+            marginTop: '+=300px'
+        }, 0);
+        $(id).animate({
+            opacity: 1,
+            marginTop: '-=300px',
+        }, 1800);
+    });
+}
 function showDescription(appId, arrow) {
     var descriptionElement = document.getElementById(`description_${appId}`);
     console.log(appId);

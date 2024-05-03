@@ -46,6 +46,15 @@
     align-items: center;
 }
 
+
+
+
+#tech-skills .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #project-area .col {
     display: flex;
     justify-content: center;
@@ -102,4 +111,8 @@ no-padding {
         align-self: center;
         text-align: center;
     }
+}
+
+.project-area {
+    overflow-x: hidden;
 }

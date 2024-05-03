@@ -40,6 +40,12 @@
     width: fit-content;
 }
 
+.background-padding .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #project-area .col {
     display: flex;
     justify-content: center;

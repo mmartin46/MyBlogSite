@@ -49,6 +49,13 @@
 #project-area .col {
     display: flex;
     justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.news-col .col {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 

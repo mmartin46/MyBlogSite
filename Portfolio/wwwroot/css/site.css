@@ -326,6 +326,25 @@ img {
 
 }
 
+#submit-btn {
+    background-color: rgb(85, 85, 85);
+    border-color: rgb(85, 85, 85);
+    color: white;
+}
+
+#submit-btn:hover {
+    background-color: rgb(120, 120, 120);
+    border-color: rgb(85, 85, 85);
+}
+
+#submit-btn:active {
+    border-color: rgb(85, 85, 85);
+}
+
+.my-main::-webkit-scrollbar {
+    display: none;
+}
+
 @media (max-width: 768px) {
     img :not(#profile-pic) {
         max-width: 250px;
@@ -333,6 +352,7 @@ img {
         height: auto;
         align-self: center;
     }
+
 
     .topic-img {
         max-width: 250px;
@@ -345,6 +365,16 @@ img {
 
     .topic-img {
         align-self: center;
+    }
+
+    form {
+        align-content: center;
+        text-align: center;
+    }
+
+    input {
+        align-content: center;
+        text-align: center;
     }
 
     .container h2 {

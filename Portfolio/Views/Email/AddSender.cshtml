@@ -10,22 +10,22 @@
     var excludedTitle = "#my-title"
 
     $(document).ready(function () {
-        $("#contact-info").css("opacity", 0);
+        $("#contact-info *:not(h1)").css("opacity", 0);
 
-        $("#contact-info").not("#my-title").animate({
-            marginTop: '+=70px'
+        $("#contact-info *:not(h1)").animate({
+            marginTop: '+=30px'
         }, 0);
-        $("#contact-info").animate({
+        $("#contact-info *:not(h1)").animate({
             opacity: 1,
-            marginTop: '-=70px'
+            marginTop: '-=30px'
         }, 1000);
     });
 </script>
 
 <div class="container title">
 
-    <h1 class="display-3">Contact Me</h1>
     <div id="contact-info" class="frame">
+        <h1 class="display-3">Contact Me</h1>
 
         @if (ViewBag.didSend == true)
         {

@@ -10,14 +10,17 @@
 <script>
     $(document).ready(function () {
 
-        $("#project-area").css("opacity", 0);
+        $("#whole-area *:not(h3):not(p)").css("opacity", 0);
+        $("#whole-area *:not(h3):not(p)").css("position", "relative");
 
-        $("#project-area").animate({
-            marginTop: '+=300px'
+
+        $("#whole-area *:not(h3):not(p)").animate({
+            top: '+=70px'
         }, 0);
-        $("#project-area").animate({
+
+        $("#whole-area *:not(h3):not(p)").animate({
             opacity: 1,
-            marginTop: '-=300px',
+            top: '-=70px'
         }, 1800);
     });
 </script>
@@ -25,7 +28,7 @@
 {
     @try
     {
-        <div class="text-center" id="project-area">
+        <div id="whole-area" class="text-center">
 
             @if (category == null)
             {
@@ -50,7 +53,7 @@
                         break;
                 }
             }
-            <div class="row">
+            <div class="row" id="project-area">
 
                 @if (Model != null)
                 {

@@ -46,7 +46,9 @@
     align-items: center;
 }
 
-
+.background-padding {
+    overflow-x: hidden;
+}
 
 
 #tech-skills .col {
@@ -115,4 +117,11 @@ no-padding {
 
 .project-area {
     overflow-x: hidden;
+}
+
+#routine-row .col {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }

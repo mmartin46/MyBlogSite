@@ -6,14 +6,16 @@
 }
 <script>
     $(document).ready(function () {
-        $("#main-content").css("opacity", 0);
+        $("#main-content *:not(.display-4):not(p)").css("opacity", 0);
+        $("#main-content *:not(.display-4):not(p)").css("position", "relative");
 
-        $("#main-content").animate({
-            marginTop: '+=300px'
+
+        $("#main-content *:not(.display-4):not(p)").animate({
+            top: '+=50px'
         }, 0);
-        $("#main-content").animate({
+        $("#main-content *:not(.display-4):not(p)").animate({
             opacity: 1,
-            marginTop: '-=300px'
+            top: '-=50px'
         }, 1000);
     });
 </script>

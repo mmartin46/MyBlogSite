@@ -8,14 +8,16 @@
     var excludedTitle = "#my-title";
 
     $(document).ready(function () {
-        $("#about-section").not("#my-title").css("opacity", 0);
 
-        $("#about-section").not("#my-title").animate({
-            marginTop: '+=300px'
+        $("#about-section > *:not(" + excludedTitle + ")").css("opacity", 0);
+        $("#about-section > *:not(" + excludedTitle + ")").css("position", "relative");
+
+        $("#about-section > *:not(" + excludedTitle + ")").animate({
+            top: '+=50px'
         }, 0);
-        $("#about-section").not("#my-title").animate({
+        $("#about-section > *:not(" + excludedTitle + ")").animate({
             opacity: 1,
-            marginTop: '-=300px'
+            top: '-=50px'
         }, 1000);
     });
 </script>

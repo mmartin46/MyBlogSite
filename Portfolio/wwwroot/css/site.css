@@ -33,8 +33,6 @@ html, body {
     overflow-x: hidden;
 }
 
-.heading {
-}
 
 
 
@@ -310,6 +308,13 @@ img {
     max-width: 600px;
 }
 
+@media (max-width: 991px) {
+    #myNavbar {
+        display: none;
+    }
+
+}
+
 @media (max-width: 479px) {
     img {
         max-width: 300px;
@@ -351,6 +356,10 @@ img {
         width: auto;
         height: auto;
         align-self: center;
+    }
+
+    #myNavbar {
+        display: none;
     }
 
 

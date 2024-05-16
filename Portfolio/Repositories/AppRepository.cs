@@ -4,7 +4,7 @@ using Portfolio.Models;
 
 namespace Portfolio.Repositories
 {
-    public class AppRepository
+    public class AppRepository : IAppRepository
     {
 
         public readonly AppDatabaseContext _context = null;
@@ -54,12 +54,12 @@ namespace Portfolio.Repositories
             };
 
 
-           await _context.AllApps.AddAsync(appModel);
-           await _context.SaveChangesAsync();
-           return appModel.Id;
+            await _context.AllApps.AddAsync(appModel);
+            await _context.SaveChangesAsync();
+            return appModel.Id;
         }
 
-        public async Task<List<AppModel>> GetApp(string ?name, string ?language, string ?author)
+        public async Task<List<AppModel>> GetApp(string? name, string? language, string? author)
         {
             List<AppModel> apps = await GetApps();
 

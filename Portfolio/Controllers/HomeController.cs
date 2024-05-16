@@ -12,7 +12,7 @@ namespace Portfolio.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly AppRepository _appRepository = null;
+        private readonly IAppRepository _appRepository = null;
 
         [ViewData]
         public string Title { get; set; }
@@ -22,7 +22,7 @@ namespace Portfolio.Controllers
 
         [ViewData]
         public List<AppModel> Apps { get; set; }
-        public HomeController(AppRepository appRepository)
+        public HomeController(IAppRepository appRepository)
         {
             _appRepository = appRepository;
         }

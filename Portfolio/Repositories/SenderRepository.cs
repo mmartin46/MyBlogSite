@@ -4,7 +4,7 @@ using Portfolio.Models;
 
 namespace Portfolio.Repositories
 {
-    public class SenderRepository
+    public class SenderRepository : ISenderRepository
     {
         public readonly SenderDatabaseContext _context = null;
         public SenderRepository(SenderDatabaseContext context)

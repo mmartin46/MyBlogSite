@@ -20,8 +20,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<Portfolio.Services.IEmailSender, EmailSender>();
 
-builder.Services.AddScoped<AppRepository, AppRepository>();
-builder.Services.AddScoped<SenderRepository, SenderRepository>();
+builder.Services.AddScoped<IAppRepository, AppRepository>();
+builder.Services.AddScoped<ISenderRepository, SenderRepository>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 

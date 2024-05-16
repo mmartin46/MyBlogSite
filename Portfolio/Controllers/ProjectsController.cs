@@ -6,12 +6,12 @@ namespace Portfolio.Controllers
 {
     public class ProjectsController : Controller
     {
-        private readonly AppRepository _appRepository = null;
+        private readonly IAppRepository _appRepository = null;
 
         [ViewData]
         public List<AppModel> apps { get; set; }
 
-        public ProjectsController(AppRepository appRepository)
+        public ProjectsController(IAppRepository appRepository)
         {
             _appRepository = appRepository;
         }

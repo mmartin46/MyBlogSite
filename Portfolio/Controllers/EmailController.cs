@@ -8,10 +8,10 @@ namespace Portfolio.Controllers
     public class EmailController : Controller
     {
         const int INVALID_VALUE = -1;
-        private readonly SenderRepository _senderRepository = null;
+        private readonly ISenderRepository _senderRepository = null;
         private readonly Services.IEmailSender _emailSender = null;
 
-        public EmailController(SenderRepository senderRepository, Services.IEmailSender emailSender)
+        public EmailController(ISenderRepository senderRepository, Services.IEmailSender emailSender)
         {
             _senderRepository = senderRepository;
             _emailSender = emailSender;

@@ -304,6 +304,7 @@ img {
 }
 
 .topic-board {
+    display: block;
     justify-content: center;
 }
 
@@ -313,12 +314,13 @@ img {
     display: flex;
     flex-direction: row;
     align-content: center;
+    justify-content: center;
     align-items: center;
     padding: -30px;
 }
 
 .topic-board img {
-    min-width: 200px;
+    min-width: 400px;
 }
 
 .topic-board .col {

@@ -20,7 +20,10 @@
     });
 </script>
 <a id="top-heading"></a>
-@model List<AppModel>;
+
+@inject Portfolio.Repositories.IAppRepository _appRepository
+
+
 @section heading
 {
     <div class="text-center header-img">
@@ -110,10 +113,13 @@
             <p>Projects that I have worked on during the majority of my undergraduate years</p>
 
             <div class="row">
+                
+                @{var allApps = await _appRepository.GetApps();}
 
-                @if (Model != null)
+                @if (allApps != null)
                 {
-                    @foreach (var app in Model)
+                               
+                    @foreach (var app in allApps)
                     {
                         <div class="col">
                             <div class="my-card card-margin">

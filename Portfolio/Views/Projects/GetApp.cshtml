@@ -5,6 +5,8 @@
     var apps = ViewData["apps"] as IEnumerable<AppModel>;
 }
 
+@inject Portfolio.Repositories.IAppRepository _appRepository;
+
 @model AppModel;
 
 <div class="container my-container">

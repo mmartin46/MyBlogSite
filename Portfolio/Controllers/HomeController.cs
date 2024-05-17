@@ -29,12 +29,11 @@ namespace Portfolio.Controllers
 
         public async Task<ViewResult> Index()
         {
-            var apps = await _appRepository.GetApps();
             ViewData["ApiNews"] = await GetNewsAsync();
 
 
             Title = "Home";
-            return View(apps);
+            return View();
         }
 
         public ViewResult AboutMe()

@@ -13,6 +13,7 @@ namespace Portfolio.Controllers
     public class HomeController : Controller
     {
         private readonly IAppRepository _appRepository = null;
+        private readonly IConfiguration _configuration;
 
         [ViewData]
         public string Title { get; set; }
@@ -22,9 +23,10 @@ namespace Portfolio.Controllers
 
         [ViewData]
         public List<AppModel> Apps { get; set; }
-        public HomeController(IAppRepository appRepository)
+        public HomeController(IAppRepository appRepository, IConfiguration configuration)
         {
             _appRepository = appRepository;
+            _configuration = configuration;
         }
 
         public async Task<ViewResult> Index()
@@ -46,7 +48,7 @@ namespace Portfolio.Controllers
             HttpClient client = new HttpClient();
 
 
-            HttpResponseMessage response = await client.GetAsync("https://newsdata.io/api/1/news?apikey=pub_42749fa5aab948b19253c5c9d10df047a737a&q=news&country=us&language=en&category=technology");
+            HttpResponseMessage response = await client.GetAsync(_configuration["news:tech"]);
             if (response.IsSuccessStatusCode)
             {
                 var data = await response.Content.ReadAsStringAsync();

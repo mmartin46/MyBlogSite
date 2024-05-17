@@ -40,6 +40,26 @@
     width: fit-content;
 }
 
+@media (min-width:701px) {
+    .full-board {
+        min-width: 1200px;
+    }
+}
+
+@media (max-width:700px) {
+    .white-board {
+        max-width: 500px;
+    }
+
+    .white-board img {
+        max-width: 350px;
+    }
+
+    .full-board {
+        max-width: 500px;
+    }
+}
+
 .background-padding .col {
     display: flex;
     justify-content: center;

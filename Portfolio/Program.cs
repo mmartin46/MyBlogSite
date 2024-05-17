@@ -6,13 +6,15 @@ using Portfolio.Repositories;
 using Portfolio.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
+
 
 builder.Services.AddDbContext<AppDatabaseContext>(options => options.UseSqlServer(
-    "Server=.;Database=Apps;Encrypt=False;Trusted_Connection=True;"
+    configuration.GetConnectionString("AppConnection")
 ));
 
 builder.Services.AddDbContext<SenderDatabaseContext>(options => options.UseSqlServer(
-    "Server=.;Database=AllSenders;Encrypt=False;Trusted_Connection=True;"
+    configuration.GetConnectionString("SenderConnection")
 ));
 
 // Add services to the container.

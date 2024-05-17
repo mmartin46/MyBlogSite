@@ -303,6 +303,28 @@ img {
     padding: 30px;
 }
 
+.topic-board {
+    justify-content: center;
+}
+
+
+
+.topic-board .row {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    padding: -30px;
+}
+
+.topic-board img {
+    min-width: 200px;
+}
+
+.topic-board .col {
+    margin: 10px;
+}
+
 .topic-img {
     max-height: 300px;
     max-width: 600px;

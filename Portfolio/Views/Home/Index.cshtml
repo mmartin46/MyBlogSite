@@ -71,20 +71,20 @@
                         <div class="col">
 
                             <!--To do format the above later-->
-                            <div class="white-board">
+                            <div class="white-board topic-board">
                                 <h3 class="display-4">@topic.Title</h3>
                                 <div class="row">
-                                    <div class="col my-img">
-                                        <img src="@topic.ImageURL" style="max-height: 200px;"/>
-                                    </div>
-                                    <div class="col desc">
-                                        <p>@GetShorterText(topic.Description, 100)</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="my-next-btn btn btn-dark">
-                                        <a class="white white-link" href="@topic.Link">Click To See More</a>
-                                    </button>
+                                     <div class="col my-img">
+                                         <img src="@topic.ImageURL" style="max-height: 200px;"/>
+                                     </div>
+                                     <div class="col desc">
+                                         <p>@GetShorterText(topic.Description, 100)</p>
+                                     </div>
+                                     <div>
+                                         <button class="my-next-btn btn btn-dark">
+                                             <a class="white white-link" href="@topic.Link">Click To See More</a>
+                                         </button>
+                                     </div>
                                 </div>
                             </div>
                         </div>

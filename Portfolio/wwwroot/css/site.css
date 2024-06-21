@@ -23,8 +23,10 @@ html {
 }
 
 body {
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(98,0,152,1) 100%);
     margin-bottom: 60px;
-    background-color: var(--dark-color);
+    /*background-color: var(--dark-color);*/
     color: rgba(255, 255, 255, 0.6);
 }
 
@@ -193,7 +195,7 @@ my-card:hover {
 .skill {
     height: 190px;
     width: 160px;
-    background-color: var(--dark-color);
+    background:rgba(0,0,0,0)
     border-radius: 8px;
 }
 
@@ -217,7 +219,7 @@ img {
     width: 160px;
     margin-top: 20px;
     margin-left: 10px;
-    background-color: mediumpurple;
+    background-color: rgba(0,0,0,0);
     border-radius: 50%;
     display: grid;
     place-items: center;
@@ -228,7 +230,8 @@ img {
         position: absolute;
         height: 84%;
         width: 84%;
-        background-color: var(--dark-color);
+        background-color: background: rgba(2,0,36, 0);
+        background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(98,0,152,1) 100%);
         border-radius: 50%;
     }
 

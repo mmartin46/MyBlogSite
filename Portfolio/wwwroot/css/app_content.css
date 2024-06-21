@@ -149,3 +149,8 @@ no-padding {
     align-content: center;
     align-items: center;
 }
+
+.pad-more {
+    margin-left: 10%;
+    margin-right: 10%;
+}

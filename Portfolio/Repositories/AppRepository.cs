@@ -63,13 +63,13 @@ namespace Portfolio.Repositories
         {
             List<AppModel> apps = await GetApps();
 
-            apps = apps.Where(app =>
-                (name == null || app.Name.Contains(name)) &&
-                (language == null || app.Language.Contains(language)) &&
-                (author == null || app.Authors.Contains(author))
-            ).ToList();
+            var appQuery = (from app in apps
+                            where ((name == null || app.Name.Contains(name)) &&
+                              (language == null || app.Language.Contains(language)) &&
+                              (author == null || app.Authors.Contains(author)))
+                            select app).ToList();
 
-            return apps;
+            return appQuery;
         }
 
         public async Task<List<AppModel>> GetAppById(int id)

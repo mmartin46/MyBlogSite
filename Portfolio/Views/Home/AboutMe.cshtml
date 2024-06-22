@@ -107,48 +107,6 @@
             </div>
         </div>
 
-        <a id="daily-routine"></a>
-        <h3 class="display-4">Daily Routine</h3>
-        <div class="container about-description" style="padding: 100px;">
-            <div class="row">
-
-
-                <topic image="/images//pb_oats.png" header="Breakfast"
-                       description="I typically start of my day with some peanut butter oatmeal.
-                            I don't have it with anything anymore because it is a relatively
-                            nutrious meal that is pretty filling (even with a small amount).
-                            Some people may think this type of breakfast is gross, but I believe
-                            it is delicious." your-style="padding: 30px;">
-                        </topic>
-
-                <topic image="/images/code.jpg" header="Coding"
-                       description="Usually throughout the day, I spend my time either trying to get
-                                    up to date with relatively long-living frameworks within technology
-                                    or building my own projects in order to get more familiar with
-                                    what is needed in the field of Software Developmet. Is it alot? Yes,
-                                    but at the same time, sometimes I geniuenly enjoy it." your-style="padding: 30px;">
-                </topic>
-                <topic image="/images/tuna.jpg" header="Lunch"
-                      description="For lunch, I typically have something relatively light so I can
-                                   still be able to concentrate. Typically, I will have a tuna-fish sandwich
-                                   with some crackers or chips, but this can vary. Overall, during this time I
-                                   still have plenty arrands that need to be done." your-style="padding: 30px;"></topic>
-
-
-                <topic image="/images/gym.jpg" header="Workout"
-                      description="After I have finished coding about a few hours longer, I decide to go ahead
-                                    and relieve some stress and workout. When you are sitting for the time
-                                    needed to learn new technologies and code up projects, I would want to move
-                                    around for a bit." your-style="padding: 30px;"></topic>
-
-                <topic image="/images/dinner.jpg" header="Dinner"
-                      description="Typically after my workout, I would ideally have a packed wrap of some
-                                   sort with fruit and crackers. Usually I try to make it relatively big considering
-                                    everything else was relatively light throughout the day. After this basically sleep and repeat."
-                      your-style="padding: 30px;"></topic>
-
-            </div>
-            
-        </div>
+        @await Html.PartialAsync("_RenderTopics");
     </div>
 </div>

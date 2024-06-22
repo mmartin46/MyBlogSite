@@ -5,95 +5,10 @@
     var category = ViewData["category"] as string;
 }
 
+
 @model List<AppModel>;
 
-<script>
-    $(document).ready(function () {
-
-        $("#whole-area *:not(h3):not(p)").css("opacity", 0);
-        $("#whole-area *:not(h3):not(p)").css("position", "relative");
-
-
-        $("#whole-area *:not(h3):not(p)").animate({
-            top: '+=70px'
-        }, 0);
-
-        $("#whole-area *:not(h3):not(p)").animate({
-            opacity: 1,
-            top: '-=70px'
-        }, 1800);
-    });
-</script>
-@section projects
-{
-    @try
-    {
-        <div id="whole-area" class="text-center">
-
-            @if (category == null)
-            {
-                <h3 class="display-4 text-center">Projects</h3>
-                <p>Projects that I have worked on during the majority of my undergraduate years</p>
-            }
-            else
-            {
-                switch (category)
-                {
-                    case "Games":
-                        <h3 class="display-4 text-center">Games</h3>
-                        <p>Here are some games I have developed throughout my development journey</p>
-                        break;
-                    case "Mobile":
-                        <h3 class="display-4 text-center">Mobile</h3>
-                        <p>Some mobile projects I have developed</p>
-                        break;
-                    case "Data":
-                        <h3 class="display-4 text-center">Data-Science</h3>
-                        <p>Data-Science based projects I've created</p>
-                        break;
-                }
-            }
-            <div class="row" id="project-area" style="margin: 5%;">
-
-                @if (Model != null)
-                {
-                    @foreach (var app in Model)
-                    {
-                        if (category == null || category == app.Category)
-                        {
-                            <div class="col">
-                                <div class="my-card card-margin">
-                                    <cropped-image width="200" height="100" image-source="@app.Picture"></cropped-image>
-
-
-                                    <h5 class="my-title display-4">@app.Name</h5>
-
-                                    <!-- Hide both of these unless arrow down button click-->
-                                    <p class="my-description" id="@($"description_{app.Id}")" style="display: none;">@app.Description</p>
-                                    <a class="my-button" asp-controller="Projects" asp-action="GetApp" asp-route-id="@app.Id" style="display: none;">Click To View</a>
-                                    <!---->
-
-
-
-
-                                    <div>
-                                        <i class="arrow down" onclick="showDescription('@app.Id', this)"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    }
-
-                }
-                else
-                {
-                    <p>No Apps Available 1</p>
-                }
-            </div>
-        </div>
-    }
-    catch
-    {
-        <h3>No Apps Available 2</h3>
-    }
-}
+@await Html.PartialAsync("_ProjectCatelog", Model, new ViewDataDictionary(ViewData)
+                                                    {
+                                                        { "name" , category }
+                                                    })

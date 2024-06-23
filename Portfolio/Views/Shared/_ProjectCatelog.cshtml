@@ -8,24 +8,13 @@
 
 @model List<AppModel>;
 
+@await Html.PartialAsync("_FadeUp", "h3):not(p", new ViewDataDictionary(ViewData)
+                                                 {
+                                                     { "target", "whole-area" },
+                                                     { "movement", "70px" },
+                                                     { "child", "" }
+                                                 })
 
-<script>
-    $(document).ready(function () {
-
-        $("#whole-area *:not(h3):not(p)").css("opacity", 0);
-        $("#whole-area *:not(h3):not(p)").css("position", "relative");
-
-
-        $("#whole-area *:not(h3):not(p)").animate({
-            top: '+=70px'
-        }, 0);
-
-        $("#whole-area *:not(h3):not(p)").animate({
-            opacity: 1,
-            top: '-=70px'
-        }, 1800);
-    });
-</script>
 
 @try
 {

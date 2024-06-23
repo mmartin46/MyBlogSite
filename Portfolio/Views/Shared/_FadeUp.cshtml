@@ -2,6 +2,9 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    var targetId = ViewData["target"] as string;
+    var changeOfY = ViewData["movement"] as string;
+    var child = ViewData["child"] as string;
 }
 
 
@@ -9,18 +12,21 @@
 
 <script>
     var excludedTitle = @Json.Serialize(Model);
+    var targetId = @Json.Serialize(targetId);
+    var movement = @Json.Serialize(changeOfY);
+    var child = @Json.Serialize(child);
 
     $(document).ready(function () {
 
-        $("#about-section > *:not(" + excludedTitle + ")").css("opacity", 0);
-        $("#about-section > *:not(" + excludedTitle + ")").css("position", "relative");
+        $("#" + targetId + " " + child + " *:not(" + excludedTitle + ")").css("opacity", 0);
+        $("#" + targetId + " " + child + " *:not(" + excludedTitle + ")").css("position", "relative");
 
-        $("#about-section > *:not(" + excludedTitle + ")").animate({
-            top: '+=50px'
+        $("#" + targetId + " " + child + " *:not(" + excludedTitle + ")").animate({
+            top: ('+=' + movement)
         }, 0);
-        $("#about-section > *:not(" + excludedTitle + ")").animate({
+        $("#" + targetId + " " + child + " *:not(" + excludedTitle + ")").animate({
             opacity: 1,
-            top: '-=50px'
+            top: ('-=' + movement)
         }, 1000);
     });
 </script>

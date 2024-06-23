@@ -4,7 +4,12 @@
 @{
 }
 
-@await Html.PartialAsync("_FadeUp", "#my-title");
+@await Html.PartialAsync("_FadeUp", "#my-title", new ViewDataDictionary(ViewData)
+                                                 {
+                                                     { "target", "about-section" },
+                                                     { "movement", "50px" },
+                                                     { "child", ">" }
+                                                 });
 
 <a id="top-heading"></a>
 <div id="about-section" class="container" style="padding: 3%;">

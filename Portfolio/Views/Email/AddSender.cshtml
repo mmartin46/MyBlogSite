@@ -5,22 +5,12 @@
 
 @model SenderModel;
 
-<script>
-
-    var excludedTitle = "#my-title"
-
-    $(document).ready(function () {
-        $("#contact-info *:not(h1)").css("opacity", 0);
-
-        $("#contact-info *:not(h1)").animate({
-            marginTop: '+=30px'
-        }, 0);
-        $("#contact-info *:not(h1)").animate({
-            opacity: 1,
-            marginTop: '-=30px'
-        }, 1000);
-    });
-</script>
+@await Html.PartialAsync("_FadeUp","h1", new ViewDataDictionary(ViewData)
+                                         { 
+                                             { "target", "contact-info" },
+                                             { "movement", "30px" },
+                                             { "child", "" }
+                                         })
 
 <div class="container title">
 

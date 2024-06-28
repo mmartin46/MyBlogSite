@@ -17,5 +17,5 @@ A Portfolio Website built utilizing the .NET CORE framework.
 <a href='https://postimg.cc/qtF3dzhy' target='_blank'><img src='https://i.postimg.cc/qtF3dzhy/ezgif-2-f6f7065ca6.gif' border='0' alt='ezgif-2-f6f7065ca6'/></a>
 
 ### Technologies
-Front-end: Razor
-Back-end: .NET CORE
+##### Frontend: Razor, Bootstrap, JQuery
+##### Backend: ASP.NET Core, Entity Framework Core, T-SQL

@@ -249,7 +249,6 @@ img {
     overflow: auto;
     max-height: 100vh;
     overflow-y: auto;
-    margin-bottom: 300px;
 }
 
 .project-area {
@@ -301,6 +300,7 @@ img {
 
 
 .my-footer {
+    box-shadow: 5px -15px 15px rgba(0,0,0,0.2);
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -432,9 +432,6 @@ img {
         height: auto;
         align-self: center;
     }
-
-
-
 
     .topic-img {
         max-width: 250px;

@@ -40,6 +40,25 @@
         </nav>
     </header>
 
+    <div id="sidebar" class="text-center">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Home" asp-action="AboutMe">About Me</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Projects" asp-action="Index">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Email" asp-action="AddSender">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+    </script>
+
     <main class="my-main">
         @RenderSection("heading", false)
         @RenderBody()

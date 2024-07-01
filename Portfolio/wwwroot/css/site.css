@@ -298,6 +298,8 @@ img {
     text-align: center;
 }
 
+
+
 .my-footer {
     width: 100%;
     position: absolute;
@@ -377,7 +379,53 @@ img {
     display: none;
 }
 
+@media (min-width: 996px) {
+
+    #sidebar {
+        display: none;
+        height: 0px;
+        width: 0px;
+    }
+}
+@media (max-width: 995px) {
+    #sidebar {
+        display: flex;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        flex-direction: row;
+        color: rgba(255, 255, 255, 0.6);
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        background-color: var(--dark-color);
+        z-index: 100;
+        box-shadow: 15px 5px 15px rgba(0,0,0,0.3);
+    }
+
+        #sidebar ul {
+            margin-left: 20%;
+            margin-right: 20%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        #sidebar li {
+            padding-top: 25px;
+        }
+
+        #sidebar a {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+}
+
 @media (max-width: 768px) {
+
+
     img :not(#profile-pic) {
         max-width: 250px;
         width: auto;
@@ -385,9 +433,7 @@ img {
         align-self: center;
     }
 
-    #myNavbar {
-        display: none;
-    }
+
 
 
     .topic-img {

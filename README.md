@@ -8,9 +8,9 @@ A Portfolio Website built utilizing the .NET CORE framework.
 
 ### Screenshots
 
-<a href='https://postimg.cc/Y4yG7JWV' target='_blank'><img src='https://i.postimg.cc/Y4yG7JWV/Screenshot-2024-06-28-131812.png' border='0' alt='Screenshot-2024-06-28-131812'/></a>
-<a href='https://postimg.cc/nCZLyHWr' target='_blank'><img src='https://i.postimg.cc/nCZLyHWr/Screenshot-2024-05-04-223113.png' border='0' alt='Screenshot-2024-05-04-223113'/></a>
-<a href='https://postimg.cc/bSS5yDwn' target='_blank'><img src='https://i.postimg.cc/bSS5yDwn/Screenshot-2024-05-01-083524.png' border='0' alt='Screenshot-2024-05-01-083524'/></a>
+<a href='https://postimg.cc/v46rxvVM' target='_blank'><img src='https://i.postimg.cc/v46rxvVM/Screenshot-2024-07-01-102448.png' border='0' alt='Screenshot-2024-07-01-102448'/></a>
+<a href='https://postimg.cc/PL5dFSQn' target='_blank'><img src='https://i.postimg.cc/PL5dFSQn/Screenshot-2024-07-01-102818.png' border='0' alt='Screenshot-2024-07-01-102818'/></a>
+<a href='https://postimg.cc/K4zJvBJc' target='_blank'><img src='https://i.postimg.cc/K4zJvBJc/Screenshot-2024-07-01-102638.png' border='0' alt='Screenshot-2024-07-01-102638'/></a>
 
 ### Footage
 

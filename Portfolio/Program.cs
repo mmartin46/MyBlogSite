@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Portfolio.Data;
 using Portfolio.Repositories;
 using Portfolio.Services;
+using Portfolio.Mapping;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -18,6 +20,8 @@ builder.Services.AddDbContext<SenderDatabaseContext>(options => options.UseSqlSe
 ));
 
 // Add services to the container.
+
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<Portfolio.Services.IEmailSender, EmailSender>();
@@ -25,6 +29,14 @@ builder.Services.AddTransient<Portfolio.Services.IEmailSender, EmailSender>();
 builder.Services.AddScoped<IAppRepository, AppRepository>();
 builder.Services.AddScoped<ISenderRepository, SenderRepository>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new AutoMapperProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 
 var app = builder.Build();

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Data;
 using Portfolio.Models;
 
@@ -8,10 +9,12 @@ namespace Portfolio.Repositories
     {
 
         public readonly AppDatabaseContext _context = null;
+        private readonly IMapper _mapper;
 
-        public AppRepository(AppDatabaseContext appDatabaseContext)
+        public AppRepository(AppDatabaseContext appDatabaseContext, IMapper mapper)
         {
             _context = appDatabaseContext;
+            _mapper = mapper;
         }
 
 
@@ -23,17 +26,8 @@ namespace Portfolio.Repositories
             {
                 foreach (var app in allApps)
                 {
-                    apps.Add(new AppModel()
-                    {
-                        Id = app.Id,
-                        Authors = app.Authors,
-                        Name = app.Name,
-                        Description = app.Description,
-                        Language = app.Language,
-                        Link = app.Link,
-                        Picture = app.Picture,
-                        Category = app.Category
-                    });
+                    var model = _mapper.Map<AppModel>(app);
+                    apps.Add(model);
                 }
             }
 
@@ -42,17 +36,7 @@ namespace Portfolio.Repositories
 
         public async Task<int> AddApp(AppModel app)
         {
-            var appModel = new Apps()
-            {
-                Id = app.Id,
-                Name = app.Name,
-                Description = app.Description,
-                Language = app.Language,
-                Link = app.Link,
-                Picture = app.Picture,
-                Authors = app.Authors
-            };
-
+            var appModel = _mapper.Map<Apps>(app);
 
             await _context.AllApps.AddAsync(appModel);
             await _context.SaveChangesAsync();

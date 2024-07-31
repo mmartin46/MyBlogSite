@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Data;
 using Portfolio.Models;
 
@@ -7,9 +8,11 @@ namespace Portfolio.Repositories
     public class SenderRepository : ISenderRepository
     {
         public readonly SenderDatabaseContext _context = null;
-        public SenderRepository(SenderDatabaseContext context)
+        private readonly IMapper _mapper;
+        public SenderRepository(SenderDatabaseContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<List<SenderModel>> GetAllSenders()
@@ -21,13 +24,8 @@ namespace Portfolio.Repositories
             {
                 foreach (var sender in sendersFromDb)
                 {
-                    senders.Add(new SenderModel()
-                    {
-                        Id = sender.Id,
-                        Email = sender.Email,
-                        Message = sender.Message,
-                        Subject = sender.Subject
-                    });
+                    var model = _mapper.Map<SenderModel>(sender);
+                    senders.Add(model);
                 }
             }
             return senders;
@@ -35,14 +33,9 @@ namespace Portfolio.Repositories
 
         public async Task<int> AddSender(SenderModel senderModel)
         {
-            var sender = new Senders()
-            {
-                Id = senderModel.Id,
-                Email = senderModel.Email,
-                Message = senderModel.Message,
-                Subject = senderModel.Subject,
-                TimeSent = DateTime.UtcNow
-            };
+            var sender = _mapper.Map<Senders>(senderModel);
+            sender.TimeSent = DateTime.UtcNow;
+
             await _context.AllSenders.AddAsync(sender);
             await _context.SaveChangesAsync();
 

@@ -48,9 +48,9 @@ namespace Portfolio.Repositories
             List<AppModel> apps = await GetApps();
 
             var appQuery = (from app in apps
-                            where ((name == null || app.Name.Contains(name)) &&
-                              (language == null || app.Language.Contains(language)) &&
-                              (author == null || app.Authors.Contains(author)))
+                            where ((name == null || app.Name!.Contains(name)) &&
+                              (language == null || app.Language!.Contains(language)) &&
+                              (author == null || app.Authors!.Contains(author)))
                             select app).ToList();
 
             return appQuery;

@@ -9,6 +9,9 @@ namespace Portfolio.Mapping
         public AutoMapperProfile()
         {
             CreateMap<Apps, AppModel>();
+            CreateMap<AppModel, Apps>();
+            CreateMap<Senders, SenderModel>();
+            CreateMap<SenderModel, Senders>();
         }
     }
 }
